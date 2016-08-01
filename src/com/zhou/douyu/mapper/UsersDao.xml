@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhou.douyu.mapper.UsersDao">		
+	
+	
+	<select id="checkUsernameIsNotExist" resultType="int">
+		select count(*) from users where username=#{0}  
+	</select>
+	
+	<select id="checkUser" resultType="int">
+		select count(*) from users where username=#{0} and password=#{1} 
+	</select>
+	
+	<insert id="add" parameterType="com.zhou.douyu.pojo.User">
+		insert into users(username,password,whosFans,registerTime,userType) values(#{username},#{password},#{whosFans},now(),"普通用户")
+	</insert>
+	
+	<select id="getUserByUsername" resultType="com.zhou.douyu.pojo.User">
+		select * from users where username=#{0}
+	</select>
+	
+	<select id="getAllUsers" resultType="com.zhou.douyu.pojo.User">
+		select * from users 
+	</select>
+	
+	<select id="getUserById" resultType="com.zhou.douyu.pojo.User">
+		select * from users where id = #{0}
+	</select>
+	
+	<update id="updateUser" parameterType="com.zhou.douyu.pojo.User">
+		update users set registerTime=#{registerTime},username=#{username},password=#{password},whosFans=#{whosFans},userType=#{userType} where id=#{id}
+	</update>
+
+	<delete id="deleteUserById">
+		delete from users where id=#{0}
+	</delete>
+</mapper>

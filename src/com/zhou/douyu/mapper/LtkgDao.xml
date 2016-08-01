@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhou.douyu.mapper.LtkgDao">
+
+
+	<select id="getAllLtkg" resultType="com.zhou.douyu.pojo.Ltkg">
+		select * from ltkg order by
+		date desc,id desc
+	</select>
+
+
+	<select id="getVideoById" parameterType="int"
+		resultType="com.zhou.douyu.pojo.Ltkg">
+		select * from ltkg where id=#{videoid}
+	</select>
+
+	<select id="getLatestVideo" resultType="com.zhou.douyu.pojo.Ltkg">
+		select * from ltkg order
+		by id desc limit 0,1
+	</select>
+
+	<insert id="add" parameterType="com.zhou.douyu.pojo.Ltkg">
+		insert into
+		ltkg(title,date,code,adduser)
+		value(#{title},#{date},#{code},#{addUser})
+	</insert>
+
+	<delete id="deleteLtkgById">
+		delete from ltkg where id = #{0}
+	</delete>
+
+	<update id="update" parameterType="com.zhou.douyu.pojo.Ltkg">
+		update ltkg set title=#{title} ,date=#{date},code=#{code} where id=#{id}
+	</update>
+	
+	<select id="getCountLtkg" resultType="int">
+		select count(*) from ltkg
+	</select>
+
+
+</mapper>

@@ -1,0 +1,161 @@
+﻿@CHARSET "UTF-8";
+
+#jumu {
+	margin-top: 80px;
+	font-family: "微软雅黑";
+}
+
+#biaoti {
+	font-size: 40px;
+	padding-bottom: 30px;
+}
+
+.jumbotron {
+	padding-left: 15px;
+}
+
+#jianying {
+	border: 3px solid;
+}
+
+#footer {
+	color: #fff;
+	background-color: #767676;
+	text-align: center;
+	margin-top: 300px;
+	width: 100%;
+	bottom: 0px;
+	border-top: 1px solid #ccc;
+	padding: 10px;
+}
+
+#todaygift {
+	padding: 80px;
+	background: #333;
+	color: #ffffff;
+}
+
+.wfslabel{	
+	position:relative;
+	top:10px;
+}
+
+#todaygift h2 {
+	text-align: center;
+	font-family: "微软雅黑";
+}
+
+.tj {
+	font-family: "黑体";
+	text-align: center;
+	color: #000090;
+}
+
+.lwtp {
+	border: 1px solid #666;
+}
+
+.item {
+	padding: 10px;
+}
+
+.pt img {
+	width: 45px;
+	height: 45px;
+}
+
+#footer p {
+	margin: 10px;
+}
+
+.bnum {
+	font-size: 40px;
+}
+
+#shuju {
+	margin-top: 70px;
+}
+
+#charts1 {
+	width: 350px;
+	height: 300px;
+}
+
+#charts2 {
+	width: 350px;
+	height: 300px;
+}
+
+.info-content {
+	background-color: #fff;
+	margin: 0 0 20px 0;
+	box-shadow: 2px 2px 4px #c2c2c2;
+}
+
+.info-content img {
+	margin: 5px 0;
+}
+
+.info-content h2 {
+	color: #0080c0;
+	text-shadow: 1px 1px 1px #c0c0c0;
+	font-family: "微软雅黑";
+}
+
+.info-content p {
+	line-height: 1.8;
+	margin-top: 15px;
+}
+
+.blur {
+	filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+	-webkit-filter: blur(20px); /* Chrome, Opera */
+	-moz-filter: blur(20px);
+	-ms-filter: blur(20px);
+	filter: blur(20px);
+	filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10,
+		MakeShadow=false); /* IE6~IE9 */
+}
+
+.zby {
+	padding: 20px;
+}
+
+.zbyname {
+	font-family: "黑体";
+	color: #EE5800;
+}
+
+.thead{
+	font-size: 18px;
+	font-family: '黑体';
+	color: #400000;
+	
+}
+
+
+/* 小屏幕（平板，大于等于 768px） */
+@media ( min-width :768px) {
+}
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media ( min-width :992px) {
+}
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media ( min-width :1200px) {
+	#biaoti {
+		font-size: 50px;
+	}
+	#charts1 {
+		width: 1000px;
+		height: 500px;
+	}
+	#charts2 {
+		width: 1000px;
+		height: 500px;
+	}
+	.bnum {
+		font-size: 60px;
+	}
+}

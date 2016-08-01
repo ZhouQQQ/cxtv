@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhou.douyu.mapper.GiftDao">
+
+	<insert id="save" parameterType="com.zhou.douyu.pojo.GiftRecord">
+		insert into
+		giftrecord(name,type,time) values(#{name},#{type},now())
+	</insert>
+
+	<select id="getTodayGift" resultType="int">
+		select count(*) from
+		giftrecord where date(time) = curdate() and type=#{0}
+	</select>
+
+
+	<select id="getAllGiftRecord" resultType="com.zhou.douyu.pojo.GiftRecord">
+		select * from
+		giftrecord order by id desc
+	</select>
+
+	<select id="getGiftRecord" resultType="com.zhou.douyu.pojo.GiftRecord">
+		select * from giftrecord
+		order by id desc limit #{0},500
+	</select>
+
+	<select id="getGiftRecordByName" resultType="com.zhou.douyu.pojo.GiftRecord">
+		select * from
+		giftrecord
+		where name=#{0}
+		order by id desc
+	</select>
+
+	<select id="getThisWeekGift" resultType="int">
+		select COUNT(*) from
+		giftrecord where type=#{0} and date(time) =
+		subdate(curdate(),date_format(curdate(),weekday(curdate()))-#{1}+1)
+	</select>
+
+	<select id="getRecentDaysGiftCount" resultType="int">
+		SELECT COUNT(*)
+		FROM giftrecord WHERE type=#{0} and DATE(time) = DATE_SUB(curdate(),
+		INTERVAL #{1} DAY)
+	</select>
+
+	<select id="getGiftRecordCount" resultType="com.zhou.douyu.vo.GiftRecordCount">
+		select name,type,count(name)as count from giftrecord group by name,type
+	</select>
+
+	<select id="getGiftRecordCountByName" resultType="com.zhou.douyu.vo.GiftRecordCount">
+		select
+		name,type,count(name)as count from giftrecord where name=#{0} group by
+		name,type order by case type 
+		when '鱼丸' then 1
+		when '赞' then 2
+		when '弱鸡' then 3
+		when '神探赣' then 4
+		when '飞机' then 5
+		when '火箭' then 6
+
+		end;
+	</select>
+
+
+
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhou.douyu.mapper.BannedDao">		
+	
+	<insert id="save" parameterType="com.zhou.douyu.pojo.BannedRecord" >
+		insert into bannedrecord(name,operator,bantime,unlocktime) values(#{name},#{operator},now(),#{unlockTime})
+	</insert>	
+	
+	<select id="getAllBannedRecord" resultType="com.zhou.douyu.pojo.BannedRecord">
+		select * from bannedrecord order by id desc
+	</select>
+	
+	<select id="getBannedRecordByName" resultType="com.zhou.douyu.pojo.BannedRecord">
+		select * from bannedrecord  where name=#{0} or operator=#{0} order by id desc 
+	</select>
+	
+
+</mapper>
